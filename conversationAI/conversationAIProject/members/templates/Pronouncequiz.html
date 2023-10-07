@@ -72,7 +72,7 @@
 </head>
 <body>
     <div class="quiz-container">
-        <div class="question">Translate: "Hello" to Yoruba</div>
+        <div class="question">Pronounce: Bawo ni ("Hello") </div>
         <textarea class="answer-input" id="convert_text"></textarea>
         <button class="next-button" onclick="checkAnswer()">Next</button>
         <button class="speech-button" id="click_to_record">Voice To Text</button>
@@ -80,14 +80,44 @@
     </div>
 
     <script>
-        const questions = [
-            { question: "Pronounce: Bawo ni ('Hello')", answer: "Bawo ni" },
-            { question: "Pronounce: Odabo ('Goodbye')", answer: "Odabo" },
-            { question: "Pronounce: Ese ('Thank you')", answer: "Ese" }
+        let questions = [
+            { question: 'Pronounce: "Bawo ni" ("Hello" in Yoruba)', answer: "Bawo ni" },
+            { question: 'Pronounce: "Odabo" ("Goodbye" in Yoruba)', answer: "Odabo" },
+            { question: 'Pronounce: "Ese" ("Thank you" in Yoruba)', answer: "Ese" },
+            { question: 'Translate: "I am learning Yoruba."', answer: "Mo n se Yoruba" },
+            { question: 'Translate: "How are you?"', answer: "Bawo ni?" },
+            { question: 'Pronounce: "Ẹ ku ọjọ ọsan" ("Good morning" in Yoruba)', answer: "Ẹ ku ọjọ ọsan" },
+            { question: 'Pronounce: "Ẹ ku ọjọ ọsẹ" ("Good afternoon" in Yoruba)', answer: "Ẹ ku ọjọ ọsẹ" },
+            { question: 'Pronounce: "Ẹ ku ọjọ ibi" ("Happy birthday" in Yoruba)', answer: "Ẹ ku ọjọ ibi" },
+            { question: 'Pronounce: "Alafia ni" ("Peace be with you" in Yoruba)', answer: "Alafia ni" },
+            { question: 'Pronounce: "Bawoni" ("How are you?" informal) in Yoruba', answer: "Bawoni" },
+            { question: 'Pronounce: "E kaaro" ("Good morning" informal) in Yoruba', answer: "E kaaro" },
+            { question: 'Pronounce: "E kaasan" ("Good evening" informal) in Yoruba', answer: "E kaasan" },
+            { question: 'Pronounce: "E kaaale" ("Good night" informal) in Yoruba', answer: "E kaaale" },
+            { question: 'Pronounce: "Ibukun ni fun o" ("Blessings upon you" in Yoruba)', answer: "Ibukun ni fun o" },
+            { question: 'Pronounce: "Mo nife re" ("I love you" in Yoruba)', answer: "Mo nife re" },
+            { question: 'Pronounce: "O dabo" ("Goodbye" informal) in Yoruba', answer: "O dabo" },
+            { question: 'Pronounce: "O dara" ("It is good/nice" in Yoruba)', answer: "O dara" },
+            { question: 'Pronounce: "Ile ni" ("It is home" in Yoruba)', answer: "Ile ni" },
+            { question: 'Pronounce: "Oruko mi ni..." ("My name is..." in Yoruba)', answer: "Oruko mi ni..." },
+            { question: 'Pronounce: "Mo ni o" ("I have it" in Yoruba)', answer: "Mo ni o" },
+            { question: 'Pronounce: "Seun rere" ("Good luck" in Yoruba)', answer: "Seun rere" },
+            { question: 'Pronounce: "Iwa ni" ("It is character" in Yoruba)', answer: "Iwa ni" },
+            { question: 'Pronounce: "Isinmi ni" ("It is comfortable" in Yoruba)', answer: "Isinmi ni" },
+            { question: 'Pronounce: "Suru ni" ("It is enjoyment" in Yoruba)', answer: "Suru ni" },
         ];
 
         let currentQuestionIndex = 0;
         let recognition;
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        shuffleArray(questions);
 
         click_to_record.addEventListener('click', function () {
             var speech = true;
@@ -112,7 +142,7 @@
 
         function showNextQuestion() {
             if (currentQuestionIndex < questions.length) {
-                document.querySelector(".question").textContent = `Translate: '${questions[currentQuestionIndex].question}' to Yoruba`;
+                document.querySelector(".question").textContent = questions[currentQuestionIndex].question;
                 document.getElementById("convert_text").value = "";
             } else {
                 document.querySelector(".quiz-container").style.transform = "scale(0)";
