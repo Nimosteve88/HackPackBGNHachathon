@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+:root{
+    --tea-green:#C8D5B9;
+    --cambridge-blue: #8FC0A9;
+    --teal: #68B0AB;
+    --fg: #FAF3DD;
+    --bg: #696D7D;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--cambridge-blue);
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: auto;
+    display: inline-block;
+
+}
+  
+li {
+    float: right;
+}
+  
+li a {
+    display: block;
+    color: var(--fg);
+    text-align: center;
+    height: auto;
+    padding: 11px 30px;
+    text-decoration: none;
+
+}
+  
+  /* Change the link color to #111 (black) on hover */
+li a:hover {
+    color: var(--bg);
+ }
+
+body{
+    background: var(--bg);
+    font-family:'Roboto Slab', sans-serif;
+}
