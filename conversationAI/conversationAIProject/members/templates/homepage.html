@@ -1,12 +1,15 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="chatbox.css">
+    <link rel="stylesheet" href="{%static 'homepage.css' %}">
     <!-- importing google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <title>Chatbox</title>
+    <title>HackPack Chatbox</title>
+</head>
+<body>
     <section>
         <header>
             <!-- Content for nav bar -->
@@ -18,20 +21,17 @@
               </ul> 
 
         </header>
-        <div class="messenger-container">
-            <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
-            <df-messenger
-                project-id="manifest-altar-401308"
-                agent-id="01190b8b-2148-4055-bc38-09c752033bff"
-                language-code="en">
-                <df-messenger-chat chat-title="Babatunde"></df-messenger-chat>
-            </df-messenger>
-    
-
+        <div class ="content">
+            <div class="textBox">
+                <h2>Wish you could speak your mother tongue?<br>With <span>Name</span> you can!</h2>
+                <p>With our Natural Language Processing Chatbox, Name, you can have conversations 
+                    with a sophisticated AI bot who will guide and converse with you 
+                    allowing you to easily pick up your mother tongue.</p>
+            </div>
+            <div class = "imageBox">
+                <img src="" class = ""> <!-- add image of a chatbox  -->
+            </div>
         </div>
     </section>
-</head>
-<body>
-    
 </body>
 </html>
