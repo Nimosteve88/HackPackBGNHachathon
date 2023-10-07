@@ -5,87 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yoruba Language Learning Quiz</title>
     <style>
-        *, *:after, *:before {
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            -ms-box-sizing: border-box;
-            box-sizing: border-box;
+    *, *:after, *:before {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        margin: 0;
+        background-color: #f2f2f2;
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .quiz-container {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 20px;
+        width: 600px;
+        text-align: center;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .question {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .answer-input {
+        width: 100%;
+        height: 200px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        resize: none;
+        padding: 10px;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .next-button, .speech-button {
+        padding: 12px 20px;
+        background: #4285f4;
+        border: 0;
+        color: #fff;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .next-button:hover, .speech-button:hover {
+        background: #3579e5;
+    }
+
+    #result {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+    .pronounce-button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: #4285f4;
+            border: 0;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
         }
-        
-        body {
-            font-family: Arial;
-            font-size: 16px;
-            margin: 0;
-            background: linear-gradient(to right bottom, #d13cff, #031f6a);
-            color: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+
+        .pronounce-button:hover {
+            background: #3579e5;
         }
-        
-        .quiz-container {
-            background-color: #fff;
-            border: 2px solid #333;
-            padding: 20px;
-            width: 600px;
-            text-align: center;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease-in-out;
-        }
-        
-        .question {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        
-        .answer-input {
-            width: 100%;
-            height: 200px;
-            border-radius: 10px;
-            resize: none;
-            padding: 10px;
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-        
-        .next-button, .speech-button {
+        .retry-button {
+            margin-top: 20px;
             padding: 12px 20px;
-            background: #0ea4da;
+            background: #4285f4;
             border: 0;
             color: #fff;
             font-size: 18px;
             cursor: pointer;
             border-radius: 5px;
         }
-        
-        .next-button:hover, .speech-button:hover {
-            background: #0779b7;
-        }
 
-        #result {
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 20px;
+        .retry-button:hover {
+            background: #3579e5;
         }
-    </style>
+</style>
+
 </head>
 <body>
     <div class="quiz-container">
-        <div class="question">Pronounce: Bawo ni ("Hello") </div>
+        <div class="question">Pronounce: "Bawo ni" ('Hello' in Yoruba)</div>
         <textarea class="answer-input" id="convert_text"></textarea>
+        <button class="pronounce-button" onclick="pronounceAnswer()">Pronounce Answer</button>
         <button class="next-button" onclick="checkAnswer()">Next</button>
         <button class="speech-button" id="click_to_record">Voice To Text</button>
-        <div id="result"></div>
+        <button class="retry-button" id="retry-button" style="display: none;" onclick="retryQuiz()">Retry</button>
     </div>
 
     <script>
         let questions = [
-            { question: 'Pronounce: "Bawo ni" ("Hello" in Yoruba)', answer: "Bawo ni" },
             { question: 'Pronounce: "Odabo" ("Goodbye" in Yoruba)', answer: "Odabo" },
             { question: 'Pronounce: "Ese" ("Thank you" in Yoruba)', answer: "Ese" },
             { question: 'Translate: "I am learning Yoruba."', answer: "Mo n se Yoruba" },
-            { question: 'Translate: "How are you?"', answer: "Bawo ni?" },
             { question: 'Pronounce: "Ẹ ku ọjọ ọsan" ("Good morning" in Yoruba)', answer: "Ẹ ku ọjọ ọsan" },
             { question: 'Pronounce: "Ẹ ku ọjọ ọsẹ" ("Good afternoon" in Yoruba)', answer: "Ẹ ku ọjọ ọsẹ" },
             { question: 'Pronounce: "Ẹ ku ọjọ ibi" ("Happy birthday" in Yoruba)', answer: "Ẹ ku ọjọ ibi" },
@@ -109,6 +138,12 @@
 
         let currentQuestionIndex = 0;
         let recognition;
+        function pronounceAnswer() {
+            const answer = questions[currentQuestionIndex].answer;
+            const utterance = new SpeechSynthesisUtterance(answer);
+            speechSynthesis.speak(utterance);
+        }
+
 
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
@@ -145,10 +180,9 @@
                 document.querySelector(".question").textContent = questions[currentQuestionIndex].question;
                 document.getElementById("convert_text").value = "";
             } else {
-                document.querySelector(".quiz-container").style.transform = "scale(0)";
-                showResult();
+                location.reload()
             }
-
+        
             currentQuestionIndex++;
         }
 
@@ -156,25 +190,17 @@
             const userAnswer = document.getElementById("convert_text").value.toLowerCase().trim();
             const correctAnswer = questions[currentQuestionIndex].answer.toLowerCase().trim();
 
-            if (userAnswer === correctAnswer) {
-                alert("Correct!");
-            } else {
-                alert("Incorrect. Try again!");
-            }
-
             showNextQuestion();
         }
+        function retryQuiz() {
+            currentQuestionIndex = 0;
+            shuffleArray(questions); // Shuffle the questions again
+            document.querySelector(".quiz-container").style.transform = "scale(1)";
+            document.getElementById("retry-button").style.display = "none";
+            showNextQuestion();
+        }       
 
-        function showResult() {
-            const correctAnswers = questions.filter((q, index) => {
-                const userAnswer = document.getElementById(`answer${index}`).value.toLowerCase().trim();
-                const correctAnswer = q.answer.toLowerCase().trim();
-                return userAnswer === correctAnswer;
-            });
 
-            const resultMessage = `You got ${correctAnswers.length} out of ${questions.length} questions correct!`;
-            document.getElementById("result").textContent = resultMessage;
-        }
     </script>
 </body>
 </html>
