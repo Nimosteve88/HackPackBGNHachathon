@@ -52,7 +52,38 @@ li a:hover {
     color: var(--bg);
  }
 
+
 body{
     background: var(--bg);
     font-family:'Roboto Slab', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* section{
+    position: relative;
+    width: 100%;
+    min-height: 19v00vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+header{
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+}
+label{
+    display: block; 
+    margin:0.5rem 0;
 }
