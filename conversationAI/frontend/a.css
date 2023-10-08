@@ -188,8 +188,8 @@ section{
     /* max-width: 500px; */
     line-height: 2rem;
     /* padding: 5px 5px; */
-    padding-bottom:70px;
-    padding-top: 40px;
+    padding-bottom:15px;
+    padding-top: 10px;
 }
 .mainContent .mainTextbox p{
     /* padding: 10px; */
@@ -217,6 +217,11 @@ section{
     padding-top: 20px;
 }
 
+.mainContent .mainTextbox .wordOfTheDay .outlineBox h3{
+    font-size: 1em;
+    line-height: 1.25;
+}
+
 .mainContent .mainTextbox .wordOfTheDay .outlineBox{
     border: 2px solid var(--fg);
     border-radius: 0.5rem;
@@ -224,6 +229,8 @@ section{
     font-size: 28px;
 
 }
+
+
 
 .scroll-arrow{
     position: absolute;
