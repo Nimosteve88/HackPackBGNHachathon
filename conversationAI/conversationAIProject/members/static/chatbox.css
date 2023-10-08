@@ -87,9 +87,9 @@ messenger-container{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     width: 350px;
-    height: 350px; /* Set your desired fixed height here */
+    height: 550px; /* Set your desired fixed height here */
     position: relative;
-    width: 60%;
+    /* width: 60%; */
     display: flex;
     margin:auto;
 }
@@ -98,7 +98,6 @@ df-messenger {
     width: 100%;
     height: 100%;
 }
-
 
 
 

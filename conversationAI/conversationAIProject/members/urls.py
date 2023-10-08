@@ -6,6 +6,6 @@ urlpatterns = [
     path('chatbox/', views.chatbot, name='chatbot'),
     path('login/',views.login, name='login'),
     path('pronouncequiz/',views.pronouncequiz, name='pronounce'),
-    path('newfeed/', views.newsfeed, name='newsfeed')
+    path('newfeed/', views.newsfeed, name='newsfeed'),
 
 ] 

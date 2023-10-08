@@ -4,9 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'homepage.css' %}">
-    <!-- importing google fonts -->
+    <title>Nigerian News</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'homepage.css'%}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://egkoppel.github.io/product-sans/google-fonts.css">
+    <!-- kreadon -->
+    
+    <!-- Add Bootstrap CSS here -->
+    <!-- importing google fonts -->
     <title>Yoruba Language Learning Quiz</title>
     <style>
     *, *:after, *:before {
@@ -102,14 +110,29 @@
             background: #3579e5;
         }
 </style>
-<ul>
-    <li style="margin-left: 3%; font-size: 30px; font-family: 'Libre Baskerville'; float: left;"><a href="{% url 'homepage' %}">Name</a></li>
-    <li style="margin-top: 8px; font-size: 16px; font-weight: 300; float: left;"><a href="{% url 'chatbot' %}">CHATBOX</a></li>
-    <li style="margin-top: 8px; float: right; margin-right: 3%; font-size: 14px; font-weight: 300;"><a class="active" href="{% url 'login' %}">LOG IN</a></li>
-</ul>
 
 </head>
 <body>
+    <header>
+        <a href="{% url 'homepage'%}" class="logo">
+            <span style="color:#0F71F2">L</span>
+            <span style="color:#D92929">i</span>
+            <span style="color:#F2A20C">n</span>
+            <span style="color:#318C07">g</span>
+            <span style="color:#0F71F2">o</span>
+            <span style="color:#D92929">L</span>
+            <span style="color:#F2A20C">i</span>
+            <span style="color:#318C07">n</span>
+            <span style="color:#0F71F2">k</span>
+        </a>
+        <ul class="nav">
+            <li><a href="{% url 'newsfeed' %}">AFRICAN NEWS</a></li>
+            <li><a href="{% url 'pronounce' %}">TRY SPEAK YORUBA!</a></li>
+            <li><a href="{% url 'chatbot' %}">CHATBOX</a></li>
+            <li><a href="{% url 'login' %}">LOGIN</a></li>
+        </ul>
+        <div class="box menu" id = "menu-icon"></div>
+    </header>
     <div class="quiz-container">
         <div class="question"></div>
         <textarea class="answer-input" id="convert_text"></textarea>
@@ -211,7 +234,7 @@
         }
         function retryQuiz() {
             currentQuestionIndex = 0;
-            shuffleArray(questions); // Shuffle the questions again
+            shuffleArray(questions); 
             document.querySelector(".quiz-container").style.transform = "scale(1)";
             document.getElementById("retry-button").style.display = "none";
             showNextQuestion();

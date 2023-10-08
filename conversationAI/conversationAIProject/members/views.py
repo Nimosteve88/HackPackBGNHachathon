@@ -12,6 +12,9 @@ def chatbot(request):
   template = loader.get_template('chatbox.html')
   return render(request, 'chatbox.html')
 
+def register(request):
+   pass
+
 def login(request):
   if request.method == 'POST':
         first_name = request.POST.get('first_name')
