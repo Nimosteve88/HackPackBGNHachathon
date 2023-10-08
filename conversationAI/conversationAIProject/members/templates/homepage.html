@@ -5,32 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LingoLink</title>
-    <link rel="stylesheet" type="text/css" href="{%static 'homepage.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage.css' %}">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://egkoppel.github.io/product-sans/google-fonts.css">
-    <!-- kreadon -->
 </head>
 <body>
     <header>
-        <a href="#" class="logo">
-            <span style="color:#0F71F2">L</span>
-            <span style="color:#D92929">i</span>
-            <span style="color:#F2A20C">n</span>
-            <span style="color:#318C07">g</span>
-            <span style="color:#0F71F2">o</span>
-            <span style="color:#D92929">L</span>
-            <span style="color:#F2A20C">i</span>
-            <span style="color:#318C07">n</span>
-            <span style="color:#0F71F2">k</span>
+        <a href="{% url 'homepage'%}" class="logo">
+            <span style="color:#a67b5b">Lingo</span>
+            <img src="{% static 'logo.jpg' %}" alt="Your Alt Text">
+            <span style="color:#a67b5b">Link</span>
         </a>
         <ul class="nav">
-            <li><a href="chatbox.html">CHATBOX</a></li>
-            <li><a href="login.html">LOGIN</a></li>
+            <li><a href="{% url 'newsfeed' %}">african news</a></li>
+            <li><a href="{% url 'pronounce' %}">try speak yoruba!</a></li>
+            <li><a href="{% url 'chatbot' %}">chatbox</a></li>
+            <li><a href="{% url 'login' %}">login</a></li>
         </ul>
-        <div class="box menu" id = "menu-icon"></div>
     </header>
    
     <section class ="landingContent" id="sec1">
@@ -42,10 +36,10 @@
                 <span style="color:#0F71F2">Bilan</span><br>
             </h2>
             <h3>...your culture companion</h3>
-            <a href="chatbox.html">Chat Now!</a>
+            <a href="{% url 'chatbot'%}">Chat Now!</a>
         </div>
         <div class = "imageBox">
-            <img src="" class = ""> <!-- add image of a chatbox  -->
+            <img src="{% static 'chatbox.png' %}" alt="Your Alt Text"> <!-- add image of a chatbox  -->
         </div>
     </section>
     <div class ="scroll-arrow">
@@ -70,7 +64,9 @@
                 </p>
                 <div class = "wordOfTheDay">
                     <div class ="outlineBox">
-                        <h3>The Word of the Day is: </h3>
+                        <h3><center>Daily Phrase: <span id="word" class="word" style="color:#F2A20C">Loading...</span></center>
+                            <center>Meaning: <span id="translation" class="translation"></span></center>
+                        </h3>
                     </div>
                 </div>
             </div>
@@ -78,6 +74,6 @@
     <!-- scroll reveal effect -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <!-- link to js -->
-    <script src="js/script.js"></script>
+    <script src="{% static 'wordoftheday.js' %}"></script>
 </body>
 </html>

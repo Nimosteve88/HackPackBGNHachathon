@@ -1,56 +1,105 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
-
+/* @import url("https://egkoppel.github.io/product-sans/google-fonts.css"); */
 :root{
-    --tea-green:#C8D5B9;
-    --cambridge-blue: #8FC0A9;
-    --teal: #68B0AB;
-    --fg: #FAF3DD;
-    --bg: #696D7D;
+    --fg2: #333333;
+    --fg: #666666;
+    --bg: #FFFFFF;
+    /* Google colours */
+    --blue: #0F71F2;
+    --pastel-blue: #A0C3FF;
+    --red: #D92929;
+    --pastel-red: #E09D97;
+    --yellow: #F2A20C;
+    --pastel-yellow: #FFE168;
+    --green:#318C07;
+    --pastel-green: #7BCFA9;
 }
+
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: var(--cambridge-blue);
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    height: auto;
-    display: inline-block;
-
-}
-  
-li {
-    float: right;
-}
-  
-li a {
-    display: block;
-    color: var(--fg);
-    text-align: center;
-    height: auto;
-    padding: 11px 30px;
+    font-family:'product-sans', sans-serif;
+    list-style: none;
     text-decoration: none;
-
+    color: var(--fg);
 }
-  
-  /* Change the link color to #111 (black) on hover */
-li a:hover {
-    color: var(--bg);
- }
 
 body{
-    background: var(--bg);
-    font-family:'Roboto Slab', sans-serif;
+    padding-bottom: 20px;
+    /* overflow: hidden; Hide scrollbars */
+
 }
+header{
+    position: fixed;
+    right:0;
+    top:0;
+    z-index: 1000;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 9%;
+    background: var(--bg);
+    border-bottom-left-radius: 0.8rem;
+    /* border-bottom-right-radius: 0.8rem; */
+    box-shadow: 2.5px 2.5px 2px #D3D3D3;
+}
+
+
+.logo{
+    font-size: 24px;
+    font-weight: 700;
+}
+.logo img{
+    width:30px;
+}
+.nav{
+    display: flex;
+}
+
+.nav a {
+    color: var(--fg);
+    margin-left: 60px;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: all .55s ease;
+}
+
+.nav a:hover{
+    border-bottom: 2px solid var(--fg);
+
+}
+/* 
+#menu-icon{
+    color: var(--fg);
+    font-size: 35px;
+    z-index: 10001;
+    cursor: pointer;
+    display: none;
+
+} */
+
 section{
+    padding: 2% 3%;
+}
+/* hero */
+.landingContent{ 
+    
+    height:100%;
+    width:100%;
+    min-height:100vh;
+    /* background: linear-gradient(); */
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    gap:2rem;
+    padding:0 12%;
+    
+}
+
+/* {
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -58,66 +107,216 @@ section{
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-header{
-    position: absolute;
-    top: 0;
-    left:0;
-    width: 100%;
-    padding: 20px 0px;
-    display: flex;
-    justify-content: space-between;
-    align-items: right;
-}
+} */
 
 
-.content{
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #FAF3DD;
-}
-
-.content .textBox p{
-    padding-top: 10px;
-    line-height:1.25;
-}
-
-.content .textBox{
-    position: relative;
-    max-width: 500px;
-    font-size: 1.2em;
-}
-
-.content .textBox h2{
-    font-size: 2.5em;
-    line-height: 1.4em;
-    font-weight: 500;
-    color: var(--tea-green);
-}
-
-.content .textBox h2 span{
-    font-size: 1.2em;
-    color: var(--cambridge-blue);
-    font-weight: 700;
-    font-family:'Libre Baskerville', sans-serif;
-}
-
-/* modify when image is added */
-
-.content .imageBox {
-    width: 600px;
+.landingContent .imageBox {
+    width: 400px;
     display: flex;
     justify-content: flex-end;
-    padding-right: 50px;
-    margin-top: 50px;
-}
-
-.content .imageBox img {
-    max-width: 340px;
+    padding-left: 70px;
+    /* margin-top: 20px; */
     
+}
+
+.landingContent .imageBox img {
+    max-width: 340px;
+    /* width:700px;
+    height:auto; */
+    border-radius:10px;
+    border: 1px solid #B3B3B3 ;
+
 
 }
+
+.landingContent .landingTextBox a{
+    display: inline-block;
+    color: var(--blue);
+    background: transparent;
+    border: 1px solid var(--blue);
+    padding: 10px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 20px;
+    text-transform: uppercase;
+    width: 150px;
+    transition: all .55s ease;
+    margin-top: 8%;
+    margin-left: 4rem;
+}
+.landingContent .landingTextBox a:hover{
+    background: var(--blue);
+    border: 1px solid transparent;
+    transform:translateX(8px);
+    color: var(--bg);
+}
+
+.landingContent .landingTextBox h2{
+    font-size: 50px;
+    color:#B3B3B3;
+}
+
+.landingContent .landingTextBox span{
+    font-size: 48px;
+    padding-left: 5%;
+    line-height: 3rem;
+}
+.landingContent .landingTextBox span:hover{
+    font-size: 56px;
+
+}
+
+.landingContent .landingTextBox h3{
+    font-size: 24px;
+    white-space: nowrap;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    
+}
+.mainContent{
+    /* position: relative; */
+    width: 90%;
+    display: flex;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    color: var(--fg);
+    
+    margin: auto;
+    padding: 10px;
+    padding-top: 80px;
+}
+.mainContent .mainTextbox{
+    position: relative;
+    /* max-width: 500px; */
+    line-height: 2rem;
+    /* padding: 5px 5px; */
+    padding-bottom:15px;
+    padding-top: 10px;
+}
+.mainContent .mainTextbox p{
+    /* padding: 10px; */
+    line-height:1.5;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+.mainContent .mainTextbox h2{
+    font-size: 1.8em;
+    line-height: 1.4em;
+    font-weight: 500;
+    color: var(--blue);
+    padding-bottom: 20px;
+}
+
+.mainContent .mainTextbox h2 span{
+    font-size: 1.2em;
+    color: var(--yellow);
+    font-weight: 700;
+    letter-spacing: 0.5;
+}
+
+.mainContent .mainTextbox .wordOfTheDay{
+    padding-top: 20px;
+}
+
+.mainContent .mainTextbox .wordOfTheDay .outlineBox h3{
+    font-size: 1em;
+    line-height: 1.25;
+}
+
+.mainContent .mainTextbox .wordOfTheDay .outlineBox{
+    border: 2px solid var(--fg);
+    border-radius: 0.5rem;
+    padding: 10px;
+    font-size: 28px;
+
+}
+
+
+
+.scroll-arrow{
+    position: absolute;
+
+    bottom:6%;
+    left:40%;
+}
+
+/* button{
+    background: transparent;
+    border: transparent;
+} */
+
+.scroll-arrow a{
+    display: block;
+    color: var(--blue);
+    background: transparent;
+    border: 1px solid var(--blue);
+    padding: 8px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 20px;
+    text-transform: uppercase;
+    transition: all .50s ease;
+    color: var(--blue);
+    background: transparent;
+    border: 1px solid var(--blue);
+    width: 200px;
+    text-align: center;
+}
+
+.scroll-arrow i{
+    font-size: 20px;
+    padding-left: 5px;
+    color: var(--blue);
+}
+
+.scroll-arrow a:hover{
+    transform:translateY(-5px);
+}
+
+@media(max-width:1460px){
+    section{
+        padding: 0 12%;
+        transition: .2s;
+    }
+}
+
+@media(max-width:1340px){
+    .landingContent .imageBox img{
+        width:100%;
+        height:auto;
+    }
+}
+
+@media(max-width:990px){
+    #menu-icon{
+        display:block;
+    }
+    .nav{
+        position: absolute;
+        top:100%;
+        right: 0;
+        width:300px;
+    }
+}
+::-webkit-scrollbar {
+    width: 20px;
+    height:40%;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #D3D3D3;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color:#868686;
+  }

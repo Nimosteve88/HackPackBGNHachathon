@@ -1,21 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 
-:root{
-    --tea-green:#C8D5B9;
+:root {
+    --tea-green: #C8D5B9;
     --cambridge-blue: #8FC0A9;
     --teal: #68B0AB;
     --fg: #FAF3DD;
     --bg: #696D7D;
 
-    /* Google colours */
+    /* Google colors */
     --blue: #4285F4;
     --red: #DB4437;
     --yellow: #F4B400;
     --green: #0F9D58;
 }
-*{
-    margin:0;
-    padding:0;
+
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -24,19 +25,18 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: var(--cambridge-blue);
+    background-color: var(--blue); /* Change to Google blue */
     position: absolute;
     top: 0px;
     width: 100%;
     height: auto;
     display: inline-block;
-
 }
-  
+
 li {
     float: right;
 }
-  
+
 li a {
     display: block;
     color: var(--fg);
@@ -44,15 +44,45 @@ li a {
     height: auto;
     padding: 11px 30px;
     text-decoration: none;
-
 }
-  
-  /* Change the link color to #111 (black) on hover */
+
+/* Change the link color to white on hover */
 li a:hover {
     color: var(--bg);
- }
+}
 
-body{
+body {
     background: var(--bg);
-    font-family:'Roboto Slab', sans-serif;
+    font-family: 'Roboto Slab', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* section{
+    position: relative;
+    width: 100%;
+    min-height: 19v00vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+}
+
+label {
+    display: block;
+    margin: 0.5rem 0;
 }

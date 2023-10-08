@@ -4,21 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{%static 'chatbox.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'chatbox.css' %}">
+
     <!-- importing google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <title>Chatbox</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://egkoppel.github.io/product-sans/google-fonts.css">
     <section>
         <header>
-            <!-- Content for nav bar -->
-            
-            <ul>
-                <li style="margin-left: 3%; font-size: 30px; font-family: 'Libre Baskerville'; float: left;"><a href="homepage.html">Name</a></li>
-                <li style="margin-top: 8px; font-size: 16px; font-weight: 300;float: left;"><a href="chatbox.html">CHATBOX</a></li>
-                <li style="margin-top: 8px; float:right; margin-right: 3%; font-size: 14px; font-weight: 300;"><a class="active" href="login.html">LOG IN</a></li>
-              </ul> 
-
+            <a href="{% url 'homepage'%}" class="logo">
+                <span style="color:#a67b5b">Lingo</span>
+                <img src="{% static 'logo.jpg' %}" alt="Your Alt Text">
+                <span style="color:#a67b5b">Link</span>
+            </a>
+            <ul class="nav">
+                <li><a href="{% url 'newsfeed' %}">african news</a></li>
+                <li><a href="{% url 'pronounce' %}">try speak yoruba!</a></li>
+                <li><a href="{% url 'chatbot' %}">chatbox</a></li>
+                <li><a href="{% url 'login' %}">login</a></li>
+            </ul>
         </header>
+        <div class = "imageBox">
+            <img src="{% static 'flags_1.png' %}" alt = "Your Alt Text"> <!-- add image of a chatbox  -->
+        </div>
         <div class="messenger-container">
             <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
             <df-messenger
@@ -27,8 +37,10 @@
                 language-code="en">
                 <df-messenger-chat chat-title="Babatunde"></df-messenger-chat>
             </df-messenger>
-    
-
+            
+        </div>
+        <div class = "imageBox2">
+            <img src="{% static 'flags_2.png' %}" alt = "Your Alt Text">
         </div>
     </section>
 </head>

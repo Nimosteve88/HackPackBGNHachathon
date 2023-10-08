@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>African News</title>
-    <link rel="stylesheet" type="text/css" href="{%static 'homepage.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage.css' %}">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,26 +77,19 @@
 <body>
     <header>
         <a href="{% url 'homepage'%}" class="logo">
-            <span style="color:#0F71F2">L</span>
-            <span style="color:#D92929">i</span>
-            <span style="color:#F2A20C">n</span>
-            <span style="color:#318C07">g</span>
-            <span style="color:#0F71F2">o</span>
-            <span style="color:#D92929">L</span>
-            <span style="color:#F2A20C">i</span>
-            <span style="color:#318C07">n</span>
-            <span style="color:#0F71F2">k</span>
+            <span style="color:#a67b5b">Lingo</span>
+            <img src="{% static 'logo.jpg' %}" alt="Your Alt Text">
+            <span style="color:#a67b5b">Link</span>
         </a>
         <ul class="nav">
-            <li><a href="{% url 'newsfeed' %}">AFRICAN NEWS</a></li>
-            <li><a href="{% url 'pronounce' %}">TRY SPEAK YORUBA!</a></li>
-            <li><a href="{% url 'chatbot' %}">CHATBOX</a></li>
-            <li><a href="{% url 'login' %}">LOGIN</a></li>
+            <li><a href="{% url 'newsfeed' %}">african news</a></li>
+            <li><a href="{% url 'pronounce' %}">try speak yoruba!</a></li>
+            <li><a href="{% url 'chatbot' %}">chatbox</a></li>
+            <li><a href="{% url 'login' %}">login</a></li>
         </ul>
-        <div class="box menu" id = "menu-icon"></div>
     </header>
     <div class="container">
-        <h1>Nigeria News</h1>
+        <h1>African News</h1>
         <div class="masonry-grid">
             {% for article in articles %}
                 <div class="masonry-item">

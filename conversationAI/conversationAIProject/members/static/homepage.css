@@ -47,10 +47,12 @@ header{
 
 
 .logo{
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 700;
 }
-
+.logo img{
+    width:30px;
+}
 .nav{
     display: flex;
 }
@@ -68,7 +70,7 @@ header{
     border-bottom: 2px solid var(--fg);
 
 }
-
+/* 
 #menu-icon{
     color: var(--fg);
     font-size: 35px;
@@ -76,7 +78,7 @@ header{
     cursor: pointer;
     display: none;
 
-}
+} */
 
 section{
     padding: 2% 3%;
@@ -109,11 +111,11 @@ section{
 
 
 .landingContent .imageBox {
-    width: 600px;
+    width: 400px;
     display: flex;
     justify-content: flex-end;
-    padding-right: 50px;
-    margin-top: 50px;
+    padding-left: 70px;
+    /* margin-top: 20px; */
     
 }
 
@@ -121,7 +123,8 @@ section{
     max-width: 340px;
     /* width:700px;
     height:auto; */
-    border-radius: 20px;
+    border-radius:10px;
+    border: 1px solid #B3B3B3 ;
 
 
 }
@@ -188,8 +191,8 @@ section{
     /* max-width: 500px; */
     line-height: 2rem;
     /* padding: 5px 5px; */
-    padding-bottom:70px;
-    padding-top: 40px;
+    padding-bottom:15px;
+    padding-top: 10px;
 }
 .mainContent .mainTextbox p{
     /* padding: 10px; */
@@ -217,6 +220,11 @@ section{
     padding-top: 20px;
 }
 
+.mainContent .mainTextbox .wordOfTheDay .outlineBox h3{
+    font-size: 1em;
+    line-height: 1.25;
+}
+
 .mainContent .mainTextbox .wordOfTheDay .outlineBox{
     border: 2px solid var(--fg);
     border-radius: 0.5rem;
@@ -224,6 +232,8 @@ section{
     font-size: 28px;
 
 }
+
+
 
 .scroll-arrow{
     position: absolute;

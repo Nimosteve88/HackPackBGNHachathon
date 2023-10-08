@@ -115,23 +115,16 @@
 <body>
     <header>
         <a href="{% url 'homepage'%}" class="logo">
-            <span style="color:#0F71F2">L</span>
-            <span style="color:#D92929">i</span>
-            <span style="color:#F2A20C">n</span>
-            <span style="color:#318C07">g</span>
-            <span style="color:#0F71F2">o</span>
-            <span style="color:#D92929">L</span>
-            <span style="color:#F2A20C">i</span>
-            <span style="color:#318C07">n</span>
-            <span style="color:#0F71F2">k</span>
+            <span style="color:#a67b5b">Lingo</span>
+            <img src="{% static 'logo.jpg' %}" alt="Your Alt Text">
+            <span style="color:#a67b5b">Link</span>
         </a>
         <ul class="nav">
-            <li><a href="{% url 'newsfeed' %}">AFRICAN NEWS</a></li>
-            <li><a href="{% url 'pronounce' %}">TRY SPEAK YORUBA!</a></li>
-            <li><a href="{% url 'chatbot' %}">CHATBOX</a></li>
-            <li><a href="{% url 'login' %}">LOGIN</a></li>
+            <li><a href="{% url 'newsfeed' %}">african news</a></li>
+            <li><a href="{% url 'pronounce' %}">try speak yoruba!</a></li>
+            <li><a href="{% url 'chatbot' %}">chatbox</a></li>
+            <li><a href="{% url 'login' %}">login</a></li>
         </ul>
-        <div class="box menu" id = "menu-icon"></div>
     </header>
     <div class="quiz-container">
         <div class="question"></div>
