@@ -1,8 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'homepage.css' %}">
+    <!-- importing google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <title>Yoruba Language Learning Quiz</title>
     <style>
     *, *:after, *:before {
@@ -98,11 +102,16 @@
             background: #3579e5;
         }
 </style>
+<ul>
+    <li style="margin-left: 3%; font-size: 30px; font-family: 'Libre Baskerville'; float: left;"><a href="{% url 'homepage' %}">Name</a></li>
+    <li style="margin-top: 8px; font-size: 16px; font-weight: 300; float: left;"><a href="{% url 'chatbot' %}">CHATBOX</a></li>
+    <li style="margin-top: 8px; float: right; margin-right: 3%; font-size: 14px; font-weight: 300;"><a class="active" href="{% url 'login' %}">LOG IN</a></li>
+</ul>
 
 </head>
 <body>
     <div class="quiz-container">
-        <div class="question">Pronounce: "Bawo ni" ('Hello' in Yoruba)</div>
+        <div class="question"></div>
         <textarea class="answer-input" id="convert_text"></textarea>
         <button class="pronounce-button" onclick="pronounceAnswer()">Pronounce Answer</button>
         <button class="next-button" onclick="checkAnswer()">Next</button>
@@ -112,9 +121,10 @@
 
     <script>
         let questions = [
+            { question: 'Pronounce: "Bawo ni" ("Hello" in Yoruba)', answer: "Bawo ni" },
             { question: 'Pronounce: "Odabo" ("Goodbye" in Yoruba)', answer: "Odabo" },
             { question: 'Pronounce: "Ese" ("Thank you" in Yoruba)', answer: "Ese" },
-            { question: 'Translate: "I am learning Yoruba."', answer: "Mo n se Yoruba" },
+            { question: 'Pronounce: "Mo n se Yoruba" ("I am learning Yoruba.")', answer: "Mo n se Yoruba" },
             { question: 'Pronounce: "Ẹ ku ọjọ ọsan" ("Good morning" in Yoruba)', answer: "Ẹ ku ọjọ ọsan" },
             { question: 'Pronounce: "Ẹ ku ọjọ ọsẹ" ("Good afternoon" in Yoruba)', answer: "Ẹ ku ọjọ ọsẹ" },
             { question: 'Pronounce: "Ẹ ku ọjọ ibi" ("Happy birthday" in Yoruba)', answer: "Ẹ ku ọjọ ibi" },
@@ -175,15 +185,22 @@
             }
         });
 
+        window.addEventListener('load', function () {
+            updateQuestion();
+            });
+
         function showNextQuestion() {
+            currentQuestionIndex++;
+            updateQuestion();
+        }
+
+        function updateQuestion() {
             if (currentQuestionIndex < questions.length) {
                 document.querySelector(".question").textContent = questions[currentQuestionIndex].question;
                 document.getElementById("convert_text").value = "";
             } else {
-                location.reload()
+                location.reload();
             }
-        
-            currentQuestionIndex++;
         }
 
         function checkAnswer() {

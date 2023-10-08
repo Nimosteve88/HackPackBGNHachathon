@@ -13,10 +13,11 @@
             <!-- Content for nav bar -->
             
             <ul>
-                <li style="margin-left: 3%; font-size: 30px; font-family: 'Libre Baskerville'; float: left;"><a href="homepage">Name</a></li>
-                <li style="margin-top: 8px; font-size: 16px; font-weight: 300;float: left;"><a href="chatbox">CHATBOX</a></li>
-                <li style="margin-top: 8px; float:right; margin-right: 3%; font-size: 14px; font-weight: 300;"><a class="active" href="login">LOG IN</a></li>
-              </ul> 
+                <li style="margin-left: 3%; font-size: 30px; font-family: 'Libre Baskerville'; float: left;"><a href="{% url 'homepage' %}">Name</a></li>
+                <li style="margin-top: 8px; font-size: 16px; font-weight: 300; float: left;"><a href="{% url 'chatbot' %}">CHATBOX</a></li>
+                <li style="margin-top: 8px; float: right; margin-right: 3%; font-size: 14px; font-weight: 300;"><a class="active" href="{% url 'login' %}">LOG IN</a></li>
+            </ul>
+            
 
         </header>
         <div class="messenger-container">

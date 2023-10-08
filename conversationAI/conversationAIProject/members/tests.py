@@ -1,38 +1,27 @@
-from google.cloud import dialogflow 
-from google.cloud import pubsub
-import json
+import requests
 
-def main():
-    # Create a Dialogflow client
-    dialogflow_client = dialogflow.SessionsClient()
+# Replace 'YOUR_API_KEY' with your actual News API key
+api_key = 'b2c8adec9244439385335aee2daf292e'
 
-    # Create a Pub/Sub client
-    pubsub_client = pubsub.Client()
+# Define the API endpoint for Nigeria news
+url = f'https://newsapi.org/v2/top-headlines?country=ng&apiKey={api_key}'
 
-    # Create a Pub/Sub topic to receive chat messages from the Dialogflow CX widget
-    topic_name = "my-chat-topic"
-    topic = pubsub_client.topic(topic_name)
+# Send a GET request to the API
+response = requests.get(url)
 
-    # Subscribe to the Pub/Sub topic
-    subscription = topic.subscribe()
+# Check if the request was successful (status code 200)
+if response.status_code == 200:
+    # Parse the JSON response
+    data = response.json()
 
-    # Start a loop to listen for chat messages from the Dialogflow CX widget
-    while True:
-        message = subscription.receive(timeout=10)
-        if message is not None:
-            # The message is a JSON object containing the chat message
-            chat_message = json.loads(message.data)
-
-            # Do whatever you want with the chat message, such as logging it to a database or sending it to a notification service
-
-            message.ack()
-        else:
-            # There are no new chat messages
-            break
-
-def log_chat_message(chat_message):
-    # TODO: Implement this function to log the chat message to a database
-    pass
-
-if __name__ == "__main__":
-    main()
+    # Check if the 'articles' key exists in the response
+    if 'articles' in data:
+        # Iterate through the list of articles and print the titles
+        for article in data['articles']:
+            title = article.get('title')
+            if title:
+                print(title)
+    else:
+        print("No articles found in the response.")
+else:
+    print(f"Failed to fetch news. Status code: {response.status_code}")

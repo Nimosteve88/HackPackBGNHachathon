@@ -6,12 +6,6 @@
     --teal: #68B0AB;
     --fg: #FAF3DD;
     --bg: #696D7D;
-
-    /* Google colours */
-    --blue: #4285F4;
-    --red: #DB4437;
-    --yellow: #F4B400;
-    --green: #0F9D58;
 }
 *{
     margin:0;
@@ -52,26 +46,19 @@ li a:hover {
     color: var(--bg);
  }
 
-
 body{
     background: var(--bg);
     font-family:'Roboto Slab', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
 }
-
-/* section{
+section{
     position: relative;
     width: 100%;
-    min-height: 19v00vh;
+    min-height: 100vh;
     padding: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-} */
+}
 
 header{
     position: absolute;
@@ -83,7 +70,54 @@ header{
     justify-content: space-between;
     align-items: right;
 }
-label{
-    display: block; 
-    margin:0.5rem 0;
+
+
+.content{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #FAF3DD;
+}
+
+.content .textBox p{
+    padding-top: 10px;
+    line-height:1.25;
+}
+
+.content .textBox{
+    position: relative;
+    max-width: 500px;
+    font-size: 1.2em;
+}
+
+.content .textBox h2{
+    font-size: 2.5em;
+    line-height: 1.4em;
+    font-weight: 500;
+    color: var(--tea-green);
+}
+
+.content .textBox h2 span{
+    font-size: 1.2em;
+    color: var(--cambridge-blue);
+    font-weight: 700;
+    font-family:'Libre Baskerville', sans-serif;
+}
+
+/* modify when image is added */
+
+.content .imageBox {
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50px;
+    margin-top: 50px;
+}
+
+.content .imageBox img {
+    max-width: 340px;
+    
+
 }

@@ -1,0 +1,97 @@
+<!-- naijanews.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'homepage.css' %}">
+    <!-- importing google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <title>Nigeria News</title>
+    
+    <!-- Add Bootstrap CSS here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Bubblegum Sans' rel='stylesheet'>
+    <style>
+        /* Custom CSS for styling news articles */
+        title{
+            font-family: 'Bubblegum Sans';
+        }
+        body {
+            background-color: #f0f0f0; /* Background color outside the container */
+        }
+        header{
+            overflow: auto;
+        }
+        .container {
+            width: 1000px; /* Adjust the width as needed */
+            height: 600px; /* Set the height as a percentage of the viewport height */
+            margin: auto; /* Center the container both horizontally and vertically */
+            margin-top: 80px;
+            padding: 20px; /* Add some padding to the container */
+            background-color: #ffffff; /* Background color inside the container */
+            border: 2px solid #ccc; /* Border around the container */
+            border-radius: 10px; /* Rounded corners for the container */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Box shadow for the container */
+            text-align: center; /* Center-align the content */
+            overflow: auto; /* Enable vertical scrolling within the container if needed */
+        }
+
+        .masonry-grid {
+            column-gap: 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            text-align: left; /* Left-align the content within each border */
+        }
+        .masonry-item {
+            margin-bottom: 15px;
+            padding: 10px; /* Add padding inside each border */
+            border: 2px solid #ccc; /* Border around each article */
+            border-radius: 10px; /* Rounded corners for each article */
+            transition: all 0.3s; /* Smooth transition on hover */
+        }
+        .masonry-item:hover {
+            transform: scale(1.05); /* Scale up the article on hover */
+            background-color: #f0f0f0; /* Background color on hover */
+        }
+        .masonry-item h3 {
+            text-decoration: none; /* Remove underlines from titles */
+            color: #333; /* Default text color for titles */
+            font-family: 'Bubblegum Sans'; /* Customize the font family */
+            transition: color 0.3s; /* Smooth color transition on hover */
+            color: green;
+        }
+
+        .masonry-item h3:hover {
+            color: rgb(1, 36, 1); /* Change the text color on hover */
+        }
+
+    </style>
+    
+</head>
+<body>
+    <header>
+        <!-- Content for nav bar -->
+        
+        <ul>
+            <li style="margin-left: 3%; font-size: 30px; font-family: 'Libre Baskerville'; float: left;"><a href="{% url 'homepage' %}">Name</a></li>
+            <li style="margin-top: 8px; font-size: 16px; font-weight: 300; float: left;"><a href="{% url 'chatbot' %}">CHATBOX</a></li>
+            <li style="margin-top: 8px; float: right; margin-right: 3%; font-size: 14px; font-weight: 300;"><a class="active" href="{% url 'login' %}">LOG IN</a></li>
+        </ul>
+        
+    </header>
+    <div class="container">
+        <h1>Nigeria News</h1>
+        <div class="masonry-grid">
+            {% for article in articles %}
+                <div class="masonry-item">
+                    <h3><a href="{{ article.url }}" target="_blank" style="text-decoration: none; color: green;">{{ article.title }}</a></h3>
+                    <!-- Add other details like description, author, etc., if needed -->
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

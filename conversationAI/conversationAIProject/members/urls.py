@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.homepage, name='homepage'),
     path('chatbox/', views.chatbot, name='chatbot'),
     path('login/',views.login, name='login'),
-    path('pronouncequiz/',views.pronouncequiz, name='pronounce')
+    path('pronouncequiz/',views.pronouncequiz, name='pronounce'),
+    path('newfeed/', views.newsfeed, name='newsfeed')
 
 ] 
